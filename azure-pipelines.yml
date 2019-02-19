@@ -1,0 +1,21 @@
+# Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+# Schema
+# https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema
+---
+
+trigger:
+    - master
+    - refs/tags/v*
+pool:
+    vmImage: 'Ubuntu-16.04'
+variables:
+    TAG_VERSION: '$(build.buildId)'
+
+steps:
+    -
+        script: bash script/ci.sh init
+        displayName: 'Docker build'
+    -
+        script: bash script/ci.sh ci
+        displayName: 'CI'
