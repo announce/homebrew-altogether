@@ -3,7 +3,7 @@
 .PHONY: init lint
 
 init:
-	ln -fs $$(pwd)/HomebrewFormula/altogether.rb $(HOME)/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/
+	ln -fs $$(pwd)/Formula/altogether.rb $(HOME)/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/
 
 lint:
 	brew audit --fix --new-formula altogether
